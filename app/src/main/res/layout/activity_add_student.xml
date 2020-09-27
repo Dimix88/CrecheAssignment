@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rbshowallnew"
+    tools:context=".AddStudent">
+
+    <EditText
+        android:id="@+id/nameField2"
+        android:layout_width="211dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="152dp"
+        android:background="@android:color/holo_blue_bright"
+        android:editable="true"
+        android:fontFamily="@font/kidofont"
+        android:gravity="center_horizontal"
+        android:text="Enter Name"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/snameField"
+        android:layout_width="211dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/holo_blue_bright"
+        android:editable="true"
+        android:fontFamily="@font/kidofont"
+        android:gravity="center_horizontal"
+        android:text="Enter Surname"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameField2" />
+
+    <EditText
+        android:id="@+id/genderField2"
+        android:layout_width="211dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="88dp"
+        android:background="@android:color/holo_blue_bright"
+        android:editable="true"
+        android:fontFamily="@font/kidofont"
+        android:gravity="center_horizontal"
+        android:text="Enter Gender"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameField2" />
+
+    <EditText
+        android:id="@+id/addressField"
+        android:layout_width="211dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="144dp"
+        android:background="@android:color/holo_blue_bright"
+        android:editable="true"
+        android:fontFamily="@font/kidofont"
+        android:gravity="center_horizontal"
+        android:text="Enter Address"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameField2" />
+
+    <EditText
+        android:id="@+id/allergiesField"
+        android:layout_width="211dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="192dp"
+        android:background="@android:color/holo_blue_bright"
+        android:editable="true"
+        android:fontFamily="@font/kidofont"
+        android:gravity="center_horizontal"
+        android:text="Enter Allergies"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameField2" />
+
+    <EditText
+        android:id="@+id/classGroupField"
+        android:layout_width="211dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="248dp"
+        android:background="@android:color/holo_blue_bright"
+        android:editable="true"
+        android:fontFamily="@font/kidofont"
+        android:gravity="center_horizontal"
+        android:text="Enter Class Group"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameField2" />
+
+    <Button
+        android:id="@+id/addBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:onClick="toMenu"
+        android:text="Back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="340dp"
+        android:onClick="addStudent"
+        android:text="Create"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameField2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

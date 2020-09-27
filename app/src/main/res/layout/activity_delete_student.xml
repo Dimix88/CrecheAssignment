@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rbremove"
+    tools:context=".DeleteStudent">
+
+    <EditText
+        android:id="@+id/delID"
+        android:layout_width="228dp"
+        android:layout_height="41dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="84dp"
+        android:background="#ec008c"
+        android:editable="true"
+        android:fontFamily="@font/kidofont"
+        android:gravity="center_horizontal"
+        android:text="Enter ID of Student to Delete"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backDelBtn" />
+
+
+    <Button
+        android:id="@+id/backDelBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:onClick="deleteBack"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/delStudentBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:onClick="deleteStudent"
+        android:text="Remove"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backDelBtn" />
+
+    <Button
+        android:id="@+id/fullClassBtn"
+        android:layout_width="87dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="276dp"
+        android:background="@drawable/allkids"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backDelBtn" />
+
+    <EditText
+        android:id="@+id/label1"
+        android:layout_width="214dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="192dp"
+        android:ems="10"
+        android:fontFamily="@font/kidofont"
+        android:inputType="textPersonName"
+        android:text="Display all Students"
+        android:textColor="#ec008c"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backDelBtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
