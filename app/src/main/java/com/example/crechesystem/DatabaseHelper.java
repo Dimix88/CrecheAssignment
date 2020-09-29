@@ -8,10 +8,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.crechesystem.model.Student;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Creche.db";
-    public static final String TABLE_NAME = "Creche_Student_Table";
+    public static final String TABLE_NAME = "Creche_Table";
     public static final String COL_1 = "ID";
     public static final String COL_2 = "NAME";
     public static final String COL_3 = "SURNAME";
@@ -27,13 +32,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table "+ TABLE_NAME +"(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, SURNAME TEXT, GENDER TEXT,ADDRESS TEXT, ALLEGIES TEXT, CLASS_GROUP TEXT)");
+        db.execSQL("create table " + TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,SURNAME TEXT,GENDER TEXT,ADDRESS TEXT,ALLERGIES TEXT,CLASS_GROUP TEXT)");
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS "+ TABLE_NAME);
         onCreate(db);
 
     }
@@ -48,7 +53,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_6, allergies);
         contentValues.put(COL_7, classGroup);
         long result = db.insert(TABLE_NAME,null, contentValues);
-        if(result == -1){
+
+        if (result == -1){
             return false;
         }
             else{
@@ -80,15 +86,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME,"ID = ?", new String[]{id});
     }
+    /**public List<Student> getListData(){
+        List<Student> arrayList = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+TABLE_NAME+" order by CLASS_GROUP",null);
+        while(res.moveToNext()){
+            String id = res.getString(0);
+            String name = res.getString(1);
+            String surname = res.getString(2);
+            String gender = res.getString(3);
+            String address = res.getString(4);
+            String allergies = res.getString(5);
+            String classGroup = res.getString(6);
+            Student student = new Student(id,name,surname,gender,address,allergies,classGroup);
+            arrayList.add(student);
+        }
+        return arrayList;
 
+    }
+     **/
     public Cursor getAllDaisy(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+TABLE_NAME+" where CLASS_GROUP = Daisy",null);
+        Cursor res = db.rawQuery("select * from "+TABLE_NAME+" where CLASS_GROUP = 'Daisy'",null);
         return res;
     }
     public Cursor getAllTulip(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+TABLE_NAME+" where CLASS_GROUP = Tulip",null);
+        Cursor res = db.rawQuery("select * from "+TABLE_NAME+" where CLASS_GROUP = 'Tulip'",null);
         return res;
     }
 }

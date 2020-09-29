@@ -16,21 +16,23 @@ public class AddStudent extends AppCompatActivity {
     EditText addGender;
     EditText addAddress;
     EditText addAllergies;
-    EditText addClass;
+    EditText addClassGroup;
     Button addBack;
     Button addCreate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_student);
+        myDb = new DatabaseHelper(this);
         addName = (EditText)findViewById(R.id.nameField2);
-        addSurname = (EditText)findViewById(R.id.snameField);
+        addSurname = (EditText)findViewById(R.id.surnameField);
         addGender = (EditText)findViewById(R.id.genderField2);
         addAddress = (EditText)findViewById(R.id.addressField);
         addAllergies = (EditText)findViewById(R.id.allergiesField);
-        addClass = (EditText)findViewById(R.id.classGroupField);
+        addClassGroup = (EditText)findViewById(R.id.classGroupField);
         addBack = (Button)findViewById(R.id.addBack);
         addCreate = (Button)findViewById(R.id.create);
+
     }
 
     public void toMenu(View v){
@@ -44,7 +46,7 @@ public class AddStudent extends AppCompatActivity {
                 addGender.getText().toString(),
                 addAddress.getText().toString(),
                 addAllergies.getText().toString(),
-                addClass.getText().toString());
+                addClassGroup.getText().toString());
         if (Isinserted==true)
         {
             Toast.makeText(AddStudent.this, "Data inserted", Toast.LENGTH_SHORT).show();

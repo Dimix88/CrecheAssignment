@@ -25,6 +25,7 @@ public class UpdateStudent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_student);
+        myDb = new DatabaseHelper(this);
         updateID = (EditText)findViewById(R.id.updateID);
         updateName = (EditText)findViewById(R.id.updateName);
         updateSurname = (EditText)findViewById(R.id.updateSurname);

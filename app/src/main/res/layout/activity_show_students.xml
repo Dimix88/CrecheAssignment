@@ -36,7 +36,7 @@
       android:id="@+id/showFullClass"
       android:layout_width="137dp"
       android:layout_height="140dp"
-      android:layout_marginTop="288dp"
+      android:layout_marginTop="228dp"
       android:background="@drawable/allkids"
       android:onClick="showAll"
       app:layout_constraintEnd_toEndOf="parent"
@@ -54,5 +54,14 @@
       app:layout_constraintHorizontal_bias="0.04"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
+
+  <ListView
+      android:id="@+id/lister"
+      android:layout_width="409dp"
+      android:layout_height="237dp"
+      android:layout_marginTop="388dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/showBackButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

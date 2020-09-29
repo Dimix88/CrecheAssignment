@@ -9,6 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+
+import com.example.crechesystem.model.Student;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShowStudents extends AppCompatActivity {
     DatabaseHelper myDb;
@@ -16,6 +22,11 @@ public class ShowStudents extends AppCompatActivity {
     Button tulip;
     Button daisy;
     Button all;
+    ListView lv;
+    DimitriAdapter adapter;
+    List<Student> child;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +36,9 @@ public class ShowStudents extends AppCompatActivity {
         daisy = (Button)findViewById(R.id.showFullClass);
         all = (Button)findViewById(R.id.tulipShowBtn);
         showBack = (Button)findViewById(R.id.showBackButton);
+        lv = (ListView)findViewById(R.id.lister);
+        myDb = new DatabaseHelper(this);
+        /*child = myDb.getListData();*/
     }
     public void showBack(View v){
         Intent showToMenu = new Intent(ShowStudents.this,MainActivity.class);
@@ -42,9 +56,9 @@ public class ShowStudents extends AppCompatActivity {
             buffer.append("ID:"+res.getString(0)+"\n");
             buffer.append("NAME:"+res.getString(1)+"\n");
             buffer.append("SURNAME:"+res.getString(2)+"\n");
-            buffer.append("GENDER:"+res.getString(3)+"\n\n");
-            buffer.append("ADDRESS:"+res.getString(4)+"\n\n");
-            buffer.append("ALLERGIES:"+res.getString(5)+"\n\n");
+            buffer.append("GENDER:"+res.getString(3)+"\n");
+            buffer.append("ADDRESS:"+res.getString(4)+"\n");
+            buffer.append("ALLERGIES:"+res.getString(5)+"\n");
             buffer.append("CLASS_GROUP:"+res.getString(6)+"\n\n");
         }
         showMessage("Data",buffer.toString());
@@ -64,10 +78,10 @@ public class ShowStudents extends AppCompatActivity {
             buffer.append("ID:"+res.getString(0)+"\n");
             buffer.append("NAME:"+res.getString(1)+"\n");
             buffer.append("SURNAME:"+res.getString(2)+"\n");
-            buffer.append("GENDER:"+res.getString(3)+"\n\n");
-            buffer.append("ADDRESS:"+res.getString(4)+"\n\n");
-            buffer.append("ALLERGIES:"+res.getString(5)+"\n\n");
-            buffer.append("CLASS_GROUP:"+res.getString(6)+"\n\n");
+            buffer.append("GENDER:"+res.getString(3)+"\n");
+            buffer.append("ADDRESS:"+res.getString(4)+"\n");
+            buffer.append("ALLERGIES:"+res.getString(5)+"\n");
+            buffer.append("CLASS_GROUP:"+res.getString(6)+"\n");
         }
         showMessage("Data",buffer.toString());
 
@@ -86,9 +100,9 @@ public class ShowStudents extends AppCompatActivity {
             buffer.append("ID:"+res.getString(0)+"\n");
             buffer.append("NAME:"+res.getString(1)+"\n");
             buffer.append("SURNAME:"+res.getString(2)+"\n");
-            buffer.append("GENDER:"+res.getString(3)+"\n\n");
-            buffer.append("ADDRESS:"+res.getString(4)+"\n\n");
-            buffer.append("ALLERGIES:"+res.getString(5)+"\n\n");
+            buffer.append("GENDER:"+res.getString(3)+"\n");
+            buffer.append("ADDRESS:"+res.getString(4)+"\n");
+            buffer.append("ALLERGIES:"+res.getString(5)+"\n");
             buffer.append("CLASS_GROUP:"+res.getString(6)+"\n\n");
         }
         showMessage("Data",buffer.toString());
@@ -103,6 +117,13 @@ public class ShowStudents extends AppCompatActivity {
         builder.setMessage(Message);
         builder.show();
 
+
+    }
+    public void loadListView(View v){
+
+        adapter = new DimitriAdapter(this,R.layout.layout,child);
+
+        lv.setAdapter(adapter);
 
     }
 }
