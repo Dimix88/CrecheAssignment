@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".ShowStudents"></activity>
+        <activity android:name=".ListViewShower"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ShowStudents" />
         <activity android:name=".UpdateStudent" />
         <activity android:name=".DeleteStudent" />
         <activity android:name=".AddStudent" />

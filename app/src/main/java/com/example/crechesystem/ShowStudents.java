@@ -23,9 +23,11 @@ public class ShowStudents extends AppCompatActivity {
     Button daisy;
     Button all;
     ListView lv;
+    public static Student student;
     DimitriAdapter adapter;
-    List<Student> child;
-
+    public static ArrayList<Student> child = new ArrayList<>();
+    public static Integer [] pics = {R.drawable.boy,R.drawable.girl};
+    String text;
 
 
     @Override
@@ -38,17 +40,52 @@ public class ShowStudents extends AppCompatActivity {
         showBack = (Button)findViewById(R.id.showBackButton);
         lv = (ListView)findViewById(R.id.lister);
         myDb = new DatabaseHelper(this);
+
         /*child = myDb.getListData();*/
     }
     public void showBack(View v){
         Intent showToMenu = new Intent(ShowStudents.this,MainActivity.class);
         startActivity(showToMenu);
     }
+    public void loadListView(View v){
+        Intent intent = new Intent(ShowStudents.this, ListViewShower.class);
+        text = "full";
+        intent.putExtra("Value",text);
+        startActivityForResult(intent,1);
+    }
+    public void loadListDaisyView(View v){
+        Intent intentDaisy = new Intent(ShowStudents.this, ListViewShower.class);
+        text = "daisy";
+        intentDaisy.putExtra("Value",text);
+        startActivityForResult(intentDaisy,1);
+    }
+    public void loadListTulipView(View v){
+        Intent intentTulip = new Intent(ShowStudents.this, ListViewShower.class);
+        text = "tulip";
+        intentTulip.putExtra("Value",text);
+        startActivityForResult(intentTulip,1);
+
+    }
+    /**
     public void showAll(View v){
         Cursor res=myDb.getAllData();
+
         if(res.getCount()==0){
             showMessage("Error","Nothing found");
             return;
+        }
+        int count = 0;
+        while(res.moveToNext() && count<child.length){
+            String id = res.getString(0);
+            String name = res.getString(1);
+            String surname = res.getString(2);
+            String gender = res.getString(3);
+            String address = res.getString(4);
+            String allergies = res.getString(5);
+            String classGroup = res.getString(6);
+            student = new Student(id,name,surname,gender,address,allergies,classGroup);
+            child[0] = student;
+
         }
 
         StringBuffer buffer= new StringBuffer();
@@ -65,8 +102,9 @@ public class ShowStudents extends AppCompatActivity {
 
 
     }
+     **/
 
-    public void showDaisy(View v){
+    /**public void showDaisy(View v){
         Cursor res=myDb.getAllDaisy();
         if(res.getCount()==0){
             showMessage("Error","Nothing found");
@@ -87,8 +125,8 @@ public class ShowStudents extends AppCompatActivity {
 
 
     }
-
-    public void showTulip(View v){
+**/
+   /** public void showTulip(View v){
         Cursor res=myDb.getAllTulip();
         if(res.getCount()==0){
             showMessage("Error","Nothing found");
@@ -119,11 +157,31 @@ public class ShowStudents extends AppCompatActivity {
 
 
     }
-    public void loadListView(View v){
+    **/
 
-        adapter = new DimitriAdapter(this,R.layout.layout,child);
+     /**   Cursor res=myDb.getAllData();
+
+        if(res.getCount()==0){
+            showMessage("Error","Nothing found");
+            return;
+        }
+
+        while(res.moveToNext()){
+            String id = res.getString(0);
+            String name = res.getString(1);
+            String surname = res.getString(2);
+            String gender = res.getString(3);
+            String address = res.getString(4);
+            String allergies = res.getString(5);
+            String classGroup = res.getString(6);
+            student = new Student(id,name,surname,gender,address,allergies,classGroup);
+            child.add(student);
+        }
+
+        child = (ArrayList<Student>) myDb.getListData();
+        adapter = new DimitriAdapter(this,child);
 
         lv.setAdapter(adapter);
 
-    }
+    }**/
 }

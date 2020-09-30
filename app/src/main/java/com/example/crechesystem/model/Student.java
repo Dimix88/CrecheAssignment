@@ -1,13 +1,13 @@
 package com.example.crechesystem.model;
 
 public class Student {
-    int image;
     String id;
     String name;
     String surname;
     String gender;
     String address;
     String allergies;
+    String classGroup;
 
     public Student(String id, String name, String surname, String gender, String address, String allergies, String classGroup) {
         this.id = id;
@@ -21,13 +21,6 @@ public class Student {
 
     public Student(){}
 
-    public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
-    }
 
     public String getId() {
         return id;
@@ -85,5 +78,5 @@ public class Student {
         this.classGroup = classGroup;
     }
 
-    String classGroup;
+
 }

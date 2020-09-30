@@ -19,16 +19,15 @@ import java.util.List;
 
 public class DimitriAdapter extends ArrayAdapter<Student> {
 
-    private List<Student> childList;
+    private ArrayList<Student>kids;
+    private Student student;
     private Activity context;
-    int resource;
 
-    public DimitriAdapter(Activity context, Integer resource, List<Student> childList) {
-        super(context,resource,childList);
+    public DimitriAdapter(Activity context,ArrayList <Student> kids) {
+        super(context, R.layout.activity_main,kids);
 
         this.context = context;
-        this.resource = resource;
-        this.childList = childList;
+        this.kids = kids;
     }
 
 
@@ -36,7 +35,7 @@ public class DimitriAdapter extends ArrayAdapter<Student> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView = inflater.inflate(resource,null,false);
+        View rowView = inflater.inflate(R.layout.layout,null,true);
         ImageView imageView = rowView.findViewById(R.id.imageView);
         TextView t1 = (TextView) rowView.findViewById(R.id.idView);
         TextView t2 = (TextView) rowView.findViewById(R.id.nameView);
@@ -45,24 +44,31 @@ public class DimitriAdapter extends ArrayAdapter<Student> {
         TextView t5 = (TextView) rowView.findViewById(R.id.addressView);
         TextView t6 = (TextView) rowView.findViewById(R.id.allergiesView);
         TextView t7 = (TextView) rowView.findViewById(R.id.classView);
+ /*
+        Student student = new Student(kids[position].getId(),kids[position].getName(),kids[position].getSurname(),kids[position].getGender(),
+                kids[position].getAddress(),kids[position].getAllergies(),kids[position].getClassGroup());
+       for(Student st:kids){
+            student = new Student(st.getId(),st.getName(),st.getSurname(),st.getGender(),st.getAddress(),st.getAllergies(),st.getClassGroup());
+
+         */
+       /*student = new Student(kids.get(0).getId(),kids.get(0).getName(),kids.get(0).getId(),kids.get(0).getId(),kids.get(0).getId(),
+                kids.get(0).getId(),kids.get(0).getId());*/
+            t1.setText(kids.get(position).getId());
+            t2.setText(kids.get(position).getName());
+            t3.setText(kids.get(position).getSurname());
+            t4.setText(kids.get(position).getGender());
+            t5.setText(kids.get(position).getAddress());
+            t6.setText(kids.get(position).getAllergies());
+            t7.setText(kids.get(position).getClassGroup());
 
 
-        Student student = childList.get(position);
-
-
-        t1.setText(student.getId());
-        t2.setText(student.getName());
-        t3.setText(student.getSurname());
-        t4.setText(student.getGender());
-        t5.setText(student.getAddress());
-        t6.setText(student.getAllergies());
-        t7.setText(student.getClassGroup());
-        if(childList.get(position).getGender().equalsIgnoreCase("male")){
+        if(kids.get(position).getGender().equalsIgnoreCase("male")) {
             imageView.setImageResource(R.drawable.boy);
         }
         else{
             imageView.setImageResource(R.drawable.girl);
         }
+
 
         return rowView;
 

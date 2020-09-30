@@ -86,8 +86,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME,"ID = ?", new String[]{id});
     }
-    /**public List<Student> getListData(){
-        List<Student> arrayList = new ArrayList<>();
+    public List<Student> getListData(){
+        ArrayList<Student> arrayList = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from "+TABLE_NAME+" order by CLASS_GROUP",null);
         while(res.moveToNext()){
@@ -104,15 +104,56 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return arrayList;
 
     }
-     **/
+
+    public List<Student> getListDaisyData(){
+        ArrayList<Student> arrayList = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+TABLE_NAME+" where CLASS_GROUP = 'Daisy'",null);
+        while(res.moveToNext()){
+            String id = res.getString(0);
+            String name = res.getString(1);
+            String surname = res.getString(2);
+            String gender = res.getString(3);
+            String address = res.getString(4);
+            String allergies = res.getString(5);
+            String classGroup = res.getString(6);
+            Student student = new Student(id,name,surname,gender,address,allergies,classGroup);
+            arrayList.add(student);
+        }
+        return arrayList;
+
+    }
+
+    public List<Student> getListTulipData(){
+        ArrayList<Student> arrayList = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+TABLE_NAME+" where CLASS_GROUP = 'Tulip'",null);
+        while(res.moveToNext()){
+            String id = res.getString(0);
+            String name = res.getString(1);
+            String surname = res.getString(2);
+            String gender = res.getString(3);
+            String address = res.getString(4);
+            String allergies = res.getString(5);
+            String classGroup = res.getString(6);
+            Student student = new Student(id,name,surname,gender,address,allergies,classGroup);
+            arrayList.add(student);
+        }
+        return arrayList;
+
+    }
+    /*
     public Cursor getAllDaisy(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from "+TABLE_NAME+" where CLASS_GROUP = 'Daisy'",null);
         return res;
     }
+
     public Cursor getAllTulip(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from "+TABLE_NAME+" where CLASS_GROUP = 'Tulip'",null);
         return res;
     }
+
+     */
 }
