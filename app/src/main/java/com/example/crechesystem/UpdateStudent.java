@@ -43,6 +43,7 @@ public class UpdateStudent extends AppCompatActivity {
     }
 
     public void updateData(View v){
+
         boolean IsUpdate= myDb.updateData(updateID.getText().toString(),
                 updateName.getText().toString(),
                 updateSurname.getText().toString(),
@@ -59,4 +60,5 @@ public class UpdateStudent extends AppCompatActivity {
             Toast.makeText(UpdateStudent.this, "Data not updated", Toast.LENGTH_SHORT).show();
         }
     }
+
 }

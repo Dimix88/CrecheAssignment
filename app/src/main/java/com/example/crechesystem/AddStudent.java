@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,6 +42,8 @@ public class AddStudent extends AppCompatActivity {
     }
 
     public void addStudent(View v){
+
+
         boolean Isinserted= myDb.insertData(addName.getText().toString(),
                 addSurname.getText().toString(),
                 addGender.getText().toString(),

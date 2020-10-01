@@ -41,7 +41,7 @@ public class ShowStudents extends AppCompatActivity {
         lv = (ListView)findViewById(R.id.lister);
         myDb = new DatabaseHelper(this);
 
-        /*child = myDb.getListData();*/
+
     }
     public void showBack(View v){
         Intent showToMenu = new Intent(ShowStudents.this,MainActivity.class);
