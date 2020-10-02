@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.example.crechesystem.model.Student;
+import com.example.crechesystem.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_6 = "ALLERGIES";
     public static final String COL_7 = "CLASS_GROUP";
 
+    public static final String TABLE2_NAME = "User_Table";
+    public static final String USER_COL1 = "ID";
+    public static final String USER_COL2 = "NAME";
+    public static final String USER_COL3 = "PASSWORD";
+
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -33,12 +39,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,SURNAME TEXT,GENDER TEXT,ADDRESS TEXT,ALLERGIES TEXT,CLASS_GROUP TEXT)");
-
+        db.execSQL("create table " + TABLE2_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,PASSWORD TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+ TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS "+ TABLE2_NAME);
         onCreate(db);
 
     }
@@ -140,6 +147,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             arrayList.add(student);
         }
         return arrayList;
+
+    }
+
+
+    public User queryUser(String name, String password) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        User user = null;
+
+        Cursor cursor = db.query(TABLE2_NAME, new String[]{USER_COL1,
+                        USER_COL2, USER_COL3}, USER_COL2 + "=? and " + USER_COL3+ "=?",
+                new String[]{name, password}, null, null, null, "1");
+        if (cursor != null)
+            cursor.moveToFirst();
+        if (cursor != null && cursor.getCount() > 0) {
+            user = new User(cursor.getString(1), cursor.getString(2));
+        }
+        // return user
+        return user;
+    }
+
+    public void addUser(User user) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(USER_COL2, user.getName());
+        values.put(USER_COL3, user.getPassword());
+
+        // Inserting Row
+        db.insert(TABLE2_NAME, null, values);
+        db.close(); // Closing database connection
 
     }
     /*

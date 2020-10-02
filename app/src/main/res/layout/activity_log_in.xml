@@ -118,6 +118,7 @@
         android:layout_marginBottom="1dp"
         android:layout_toEndOf="@+id/textview1"
         android:layout_toRightOf="@+id/textview1"
+        android:onClick="toRegister"
         android:text="Register" />
 
 </RelativeLayout>

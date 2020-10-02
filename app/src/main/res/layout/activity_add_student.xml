@@ -91,14 +91,15 @@
 
     <EditText
         android:id="@+id/classGroupField"
-        android:layout_width="211dp"
-        android:layout_height="29dp"
+        android:layout_width="204dp"
+        android:layout_height="40dp"
         android:layout_marginTop="248dp"
+        android:inputType="textCapSentences"
         android:background="@android:color/holo_blue_bright"
         android:editable="true"
         android:fontFamily="@font/kidofont"
         android:gravity="center_horizontal"
-        android:hint="Enter Class Group"
+        android:hint="Enter Class Group\nDaisy/Tulip"
         android:textColor="@android:color/background_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
