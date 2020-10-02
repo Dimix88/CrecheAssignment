@@ -23,6 +23,7 @@
         android:fontFamily="@font/kidofont"
         android:gravity="center_horizontal"
         android:hint="Enter ID"
+        android:inputType="number"
         android:textColor="@android:color/background_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

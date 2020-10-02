@@ -42,21 +42,61 @@ public class AddStudent extends AppCompatActivity {
     }
 
     public void addStudent(View v){
+        if(checkDataEntered()==true) {
 
 
-        boolean Isinserted= myDb.insertData(addName.getText().toString(),
-                addSurname.getText().toString(),
-                addGender.getText().toString(),
-                addAddress.getText().toString(),
-                addAllergies.getText().toString(),
-                addClassGroup.getText().toString());
-        if (Isinserted==true)
-        {
-            Toast.makeText(AddStudent.this, "Data inserted", Toast.LENGTH_SHORT).show();
+            boolean Isinserted = myDb.insertData(addName.getText().toString(),
+                    addSurname.getText().toString(),
+                    addGender.getText().toString(),
+                    addAddress.getText().toString(),
+                    addAllergies.getText().toString(),
+                    addClassGroup.getText().toString());
+            if (Isinserted == true) {
+                Toast.makeText(AddStudent.this, "Data inserted", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(AddStudent.this, "Data not inserted", Toast.LENGTH_SHORT).show();
+            }
         }
-        else
-        {
-            Toast.makeText(AddStudent.this, "Data not inserted", Toast.LENGTH_SHORT).show();
+        else{
+            Toast.makeText(AddStudent.this, "Fill in the required fields", Toast.LENGTH_SHORT).show();
         }
     }
+    boolean isEmpty(EditText text) {
+        CharSequence str = text.getText().toString();
+        return TextUtils.isEmpty(str);
+    }
+    public boolean checkDataEntered() {
+
+        if (isEmpty(addName)) {
+            addName.setError("Name is required!");
+            return false;
+        }
+
+            else if (isEmpty(addSurname)) {
+                addSurname.setError("Last name is required!");
+                return false;
+            }
+
+                else if (isEmpty(addGender)) {
+                    addGender.setError("Gender is required!");
+                    return false;
+                    }
+                    else if (isEmpty(addAddress)) {
+                        addAddress.setError("Address is required!");
+                        return false;
+                        }
+
+                        else if (isEmpty(addClassGroup)) {
+                            addClassGroup.setError("Class Name is required!");
+                            return false;
+                        }
+        else{
+            return true;
+        }
+
+
+    }
 }
+
+
+

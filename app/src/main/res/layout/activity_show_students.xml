@@ -58,12 +58,45 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
-  <ListView
-      android:id="@+id/lister"
-      android:layout_width="409dp"
-      android:layout_height="237dp"
-      android:layout_marginTop="388dp"
+
+  <TextView
+      android:id="@+id/txtDaisy"
+      android:layout_width="125dp"
+      android:layout_height="32dp"
+      android:layout_marginTop="24dp"
+      android:fontFamily="@font/kidofont"
+      android:gravity="center_horizontal"
+      android:text="Display Daisy Class"
+      android:textColor="@color/colorPrimaryDark"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.089"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/showBackButton" />
+
+  <TextView
+      android:id="@+id/txtAll"
+      android:layout_width="125dp"
+      android:layout_height="32dp"
+      android:layout_marginTop="368dp"
+      android:fontFamily="@font/kidofont"
+      android:gravity="center_horizontal"
+      android:text="Display All Kids"
+      android:textColor="@color/colorPrimaryDark"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/showBackButton" />
+
+  <TextView
+      android:id="@+id/txtTulip"
+      android:layout_width="125dp"
+      android:layout_height="32dp"
+      android:layout_marginTop="24dp"
+      android:fontFamily="@font/kidofont"
+      android:gravity="center_horizontal"
+      android:text="Display Tulip Class"
+      android:textColor="@color/colorPrimaryDark"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.902"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/showBackButton" />
 
